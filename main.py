@@ -7,8 +7,7 @@ msg['Subject'] = input("email subject : ")
 msg['From'] = input("email sender : ")
 msg['To'] = input("email receiver's address : ")
 msg.set_content(input(
-"""
-email content : 
+"""email content : 
 """))
 
 email_list = {'google' : 'smtp.gmail.com',
