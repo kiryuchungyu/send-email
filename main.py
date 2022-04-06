@@ -19,7 +19,17 @@ class Mail:
         server = smtplib.SMTP(email_list['{}'.format(input('what is the email server, google or microsoft? : '))], 587)
         server.ehlo()
         server.starttls()
-        server.login(input("your mail : "), input("your password : "))
+        cnt = 0
+        while cnt < 3:
+            cnt += 1
+            try:
+                server.login(input("your mail : "), input("your password : "))
+                break
+            except:
+                print("please input the right mail address and the password!")
+                if cnt == 3:
+                    print("this time would be the last chance")
+                    server.login(input("your mail : "), input("your password : "))
         server.send_message(self.msg)
         server.quit()
         print("your mail is sent successfully")
